@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body style="background-color: greenyellow;">
+    <h1 style="text-align: center;">User Profile</h1>
+    {%if user%}
+    <img style ="height: 100px" src="{{user.image.url}}">
+    
+    <p style="text-align: center;">Welcome,{{user.user.username}}</p>
+    <p style="text-align: center;">Welcome,{{user.user.email}}</p>
+    {%else%}
+    <P> You need to be signed in to acess this page</P>
+    {%endif%}
+
+
+</body>
+</html>

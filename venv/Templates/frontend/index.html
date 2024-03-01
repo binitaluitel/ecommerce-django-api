@@ -1,0 +1,54 @@
+{% extends "frontend/layout/main.html" %}
+
+{% block title %}Home - My Site{% endblock %}
+
+{% block content %}
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://t3.ftcdn.net/jpg/04/65/46/52/360_F_465465254_1pN9MGrA831idD6zIBL7q8rnZZpUCQTy.jpg" class="d-block w-100" style="height: 70vh; object-fit: cover;" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/006/774/small/paper-art-shopping-online-on-smartphone-and-new-buy-sale-promotion-backgroud-for-banner-market-ecommerce-free-vector.jpg" class="d-block w-100" style="height: 70vh; object-fit: cover;" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://previews.123rf.com/images/garagestock/garagestock1701/garagestock170138608/70143581-e-commerce-banner.jpg" class="d-block w-100" style="height: 70vh; object-fit: cover;" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="container my-4">
+    <h4>Products</h4>
+    <div class="row mt-3  g-3">
+        {%for product in products%}
+        <div class="col-lg-3">
+            <div class="card">
+                {%if product.image%}
+                <img src="{{product.image.url}}" style="height: 40vh;object-fit: cover;">
+                {% else%}
+                <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png">
+                {% endif%}
+
+               <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text"><strong>Price :NRP </strong>{{product.price}}</p>
+                    <a href="/product/{{product.id}}" class="btn btn-primary">View Product</a>
+                    <h6><strong>Description:</strong>{{product.description}}</h6>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+        
+</div>
+{% endblock %}

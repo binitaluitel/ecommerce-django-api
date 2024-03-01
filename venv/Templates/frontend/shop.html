@@ -1,0 +1,30 @@
+{% extends "frontend/layout/main.html" %}
+
+{% block title %}Shop - My Site{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <h4>Shop Products</h4>
+    <div class="row mt-3  g-3">
+       {%for product in products%}
+        <div class="col-lg-3">
+            <div class="card">
+                {%if product.image%}
+                <img src="{{product.image.url}}" style="height: 40vh;object-fit: cover;">
+                {% else%}
+                <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" style="height: 40vh;object-fit: cover;">
+                {% endif%}
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text"><strong>Price :NRP </strong>{{product.price}}</p>
+                    <a href="/product/{{product.id}}" class="btn btn-primary">View Product</a>
+                    <h6><strong>Description:</strong>{{product.description}}</h6>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+        
+    </div>
+</div>
+{% endblock %}
